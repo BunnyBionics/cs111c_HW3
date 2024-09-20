@@ -25,13 +25,28 @@ public class HomeworkM3Driver {
 	}
 
 	public static ListFromOne<String> createListFromOneContainingChar(ListFromOne<String> wordList, char targetChar) {
-		return new ArrayListFromOne<String>(); // placeholder: replace with your own code
-		// YOUR CODE HERE
+		ListFromOne<String> newList = new ArrayListFromOne<>();
+		String current;
+		for (int i = 1; i < wordList.size() + 1; i++) {
+			current = wordList.get(i);
+			if (current.indexOf(targetChar) != -1) {
+				newList.add(current);
+			}
+		}
+
+		return newList;
 	}
 
 	public static int lastPosition(List<String> wordList, String targetWord) {
-		return 0; // placeholder: replace with your own code
-		// YOUR CODE HERE
+		int position = -1;
+
+		for (int i = 0; i < wordList.size(); i++) {
+			if (wordList.get(i).equals(targetWord)) {
+				position = i;
+			}
+		}
+
+		return position;
 	}
 
 	public static boolean equivalentLists(ListFromOne<Integer> numberListFromOne, List<Integer> numberList) {
