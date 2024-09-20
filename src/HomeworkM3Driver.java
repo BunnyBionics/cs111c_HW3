@@ -7,8 +7,21 @@ public class HomeworkM3Driver {
 	}
 
 	public static boolean containsDuplicates(Multiset<String> wordSet) {
-		return false; // placeholder: replace with your own code
-		// YOUR CODE HERE
+		Multiset<String> copy = new ArrayMultiset<>();
+		boolean hasDuplicates = false;
+
+		while(!wordSet.isEmpty()) {
+			String str = wordSet.remove();
+			if (wordSet.getOccurrencesOf(str) > 0) {
+				hasDuplicates = true;
+			}
+			copy.add(str);
+		}
+
+		while(!copy.isEmpty()) {
+			wordSet.add(copy.remove());
+		}
+		return hasDuplicates;
 	}
 
 	public static ListFromOne<String> createListFromOneContainingChar(ListFromOne<String> wordList, char targetChar) {
