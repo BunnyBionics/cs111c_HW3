@@ -3,7 +3,16 @@ import java.util.*;
 public class HomeworkM3Driver {
 
 	public static void prioritizeMaximumValue(List<Integer> numberList) {
-		// YOUR CODE HERE
+		if (numberList.size() < 2) {
+			return;
+		}
+
+		int max = numberList.get(0);
+		for (int i = 1; i < numberList.size(); i++) {
+			max = numberList.get(i) > max ? numberList.get(i) : max;
+		}
+		numberList.remove(Integer.valueOf(max));
+		numberList.add(0, max);
 	}
 
 	public static boolean containsDuplicates(Multiset<String> wordSet) {
@@ -50,8 +59,17 @@ public class HomeworkM3Driver {
 	}
 
 	public static boolean equivalentLists(ListFromOne<Integer> numberListFromOne, List<Integer> numberList) {
-		return false; // placeholder: replace with your own code
-		// YOUR CODE HERE
+		if (numberListFromOne.size() != numberList.size()) {
+			return false;
+		}
+
+		for (int i = 0; i < numberList.size(); i++) {
+			if (!numberList.get(i).equals(numberListFromOne.get(i + 1))) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 
